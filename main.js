@@ -1,3 +1,6 @@
+ let firstNum = '';
+ let secondNum = '';
+ let theOperator = ''
 function add(a,b){
    return a + b
 }
