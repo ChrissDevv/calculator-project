@@ -32,3 +32,6 @@ function operate(operater,num1,num2){
     }
 
 }
+function addone(){
+
+}
