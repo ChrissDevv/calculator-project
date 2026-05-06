@@ -1,5 +1,5 @@
-let firstNum = '';
- let secondNum = '';
+let firstNum = ''
+ let secondNum = ''
  let theOperator = ''
 // Will select all divs with the class of digit , and run a loop through them and add a eventlistner that waits for a click then runs a function that checks if its the first number clicked or second number click,which then displays it in the display div
 let onlyDigits = document.querySelectorAll('.digit')
@@ -13,10 +13,16 @@ let onlyDigits = document.querySelectorAll('.digit')
             document.querySelector('#display').textContent = secondNum
         }
     })
-    
  }
 
+let onlyOperators = document.querySelectorAll('.operator')
+ for( let i = 0; i < onlyOperators.length; i ++){
+onlyOperators[i].addEventListener('click', function (e){
+    theOperator = e.target.textContent
+    document.querySelector('#display').textContent = theOperator
+    })
 
+ }
 
 function add(a,b){
    return a + b
@@ -39,7 +45,7 @@ function divide(a,b){
 
 function operate(operater,num1,num2){
     if( operater === '+'){
-        return add(num1,num2)
+        return add (num1,num2)
     }else if(operater === '-'){
         return subtract(num1,num2)
     }else if(operater === '*'){
@@ -49,6 +55,19 @@ function operate(operater,num1,num2){
     }else{
         alert('This is not a vaild operation!')
     }
-
 }
 
+
+// function that runs when = is clicked and makes it pop up on display
+
+document.querySelector('#btn-equal').addEventListener('click', function (e){
+    let result = operate(theOperator,Number(firstNum), Number(secondNum))
+document.querySelector('#display').textContent = result
+})
+
+document.querySelector('#btn-clear').addEventListener('click', function(e){
+     firstNum = ''
+     secondNum = ''
+     theOperator = ''
+     document.querySelector('#display').textContent = ''
+})
